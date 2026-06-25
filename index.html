@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Surprise ❤️</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffe6f0,#fff5f8);
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.page{
+width:100%;
+height:100vh;
+display:none;
+padding:25px;
+text-align:center;
+overflow-y:auto;
+}
+
+.active{
+display:block;
+}
+
+h1{
+color:#ff4d88;
+margin-bottom:20px;
+}
+
+p{
+font-size:18px;
+line-height:1.7;
+color:#444;
+}
+
+.btn{
+padding:12px 24px;
+border:none;
+border-radius:30px;
+background:#ff4d88;
+color:white;
+font-size:18px;
+margin:10px;
+cursor:pointer;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+#yesBtn{
+position:absolute;
+}
+
+.message{
+margin-top:25px;
+font-size:20px;
+font-weight:bold;
+color:#ff4d88;
+min-height:35px;
+}
+
+.teddy{
+font-size:65px;
+margin:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+max-width:500px;
+margin:auto;
+}
+
+ul{
+text-align:left;
+margin-top:15px;
+font-size:18px;
+line-height:1.8;
+}
+
+.bold{
+font-weight:bold;
+font-size:22px;
+margin-top:20px;
+color:#ff4d88;
+}
+
+.last-buttons{
+margin-top:30px;
+}
+
+@media(max-width:600px){
+h1{
+font-size:28px;
+}
+
+p,li{
+font-size:17px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+<div class="card">
+
+<div class="teddy">🧸🧸</div>
+
+<h1>Do you love me? ❤️</h1>
+
+<div style="position:relative;height:180px;">
+
+<button class="btn" id="yesBtn">YES</button>
+
+<button class="btn" id="noBtn"
+style="position:absolute;left:50%;top:100px;transform:translateX(-50%);">
+NO
+</button>
+
+</div>
+
+<div class="message" id="funnyMsg"></div>
+
+</div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+<div class="card">
+
+<div class="teddy">🧸💔🧸</div>
+
+<h1>Oops 😭</h1>
+
+<p>
+I know you don't but I'll keep loving you no matter what ❤️
+</p>
+
+<br>
+
+<button class="btn" onclick="nextPage(3)">Continue ➜</button>
+
+</div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page" id="page3">
+<div class="card">
+
+<h1>Reasons Why You're Different From Others ❤️</h1>
+
+<ul>
+<li>In a world full of honesty, you have taught me how to lie with confidence.</li>
+
+<li>In a world full of trust, you'll say "trust me."</li>
+
+<li>In a world full of solutions, you'll become customer support.</li>
+
+<li>In a world full of communication, you'll say "it's fine".</li>
+</ul>
+
+<div class="bold">
+You're the reason I believe in miracles... because statistics said this shouldn't happen 🧚‍♀️🤗✨
+</div>
+
+<br>
+
+<button class="btn" onclick="nextPage(4)">Go Ahead ➜</button>
+
+</div>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page" id="page4">
+<div class="card">
+
+<h1>Just Kidding ❤️</h1>
+
+<p>
+Thank you for teaching me so many beautiful things ❤️
+<br><br>
+I'm so soo grateful for it.
+<br><br>
+Thank you for all the beautiful paragraphs you wrote,
+all the 11:11 wishes,
+the way you make me feel seen and heard in so many ways.
+<br><br>
+No matter what life brings to us...
+I'll continue loving you. ❤️
+</p>
+
+<div class="bold">
+If loving you is wrong, then I'm probably right. ❤️🧿
+</div>
+
+<br><br>
+
+<h1>Things I Promise To You ❤️</h1>
+
+<ul>
+<li>In a world full of stability, I'll send you "we need to talk."</li>
+
+<li>In a world full of happiness, I'll ask "can I tell you something?"</li>
+
+<li>In a world full of peace, I'll become your group project partner.</li>
+</ul>
+
+<br>
+
+<button class="btn" onclick="nextPage(5)">Continue ➜</button>
+
+</div>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page" id="page5">
+<div class="card">
+
+<div class="teddy">🧸💕🧸</div>
+
+<h1>Did You Like My Surprise? ❤️</h1>
+
+<div class="last-buttons">
+
+<button class="btn" onclick="finalMessage()">
+YES
+</button>
+
+<button class="btn" onclick="finalMessage()">
+YES
+</button>
+
+</div>
+
+<div id="ending"></div>
+
+</div>
+</div>
+
+<script>
+
+const yesBtn = document.getElementById("yesBtn");
+const funnyMsg = document.getElementById("funnyMsg");
+
+const messages = [
+"Tired? 😏",
+"Almost there 😂",
+"Aren't you embarrassed? 🤭",
+"Keep trying 😭",
+"Still clicking? 😆",
+"You're determined 💀",
+"One more try 🤣",
+"Not happening 😌",
+"Give up already 😭",
+"Oops moved again 🏃‍♂️"
+];
+
+let count = 0;
+
+yesBtn.addEventListener("click", () => {
+
+const maxX = window.innerWidth - 120;
+const maxY = 250;
+
+yesBtn.style.left =
+Math.random() * maxX + "px";
+
+yesBtn.style.top =
+Math.random() * maxY + "px";
+
+funnyMsg.innerText =
+messages[count % messages.length];
+
+count++;
+});
+
+document.getElementById("noBtn")
+.addEventListener("click", () => {
+nextPage(2);
+});
+
+function nextPage(pageNo){
+
+document
+.querySelectorAll(".page")
+.forEach(page =>
+page.classList.remove("active"));
+
+document
+.getElementById("page"+pageNo)
+.classList.add("active");
+}
+
+function finalMessage(){
+
+document.getElementById("ending").innerHTML=
+`
+<h2 style="margin-top:25px;color:#ff4d88;">
+YAYYY ❤️🥹
+</h2>
+
+<p style="margin-top:15px;">
+Mission Successful ✨<br>
+Thank you for being you ❤️🧸
+</p>
+`;
+}
+
+yesBtn.style.left="40px";
+yesBtn.style.top="30px";
+
+</script>
+
+</body>
+</html>
